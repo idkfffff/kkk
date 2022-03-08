@@ -9,11 +9,6 @@ local Speed = Instance.new("TextButton")
 local Open = Instance.new("ImageButton")
 local TextBox = Instance.new("TextBox")
 
-
---script by badtime
-
-
---ScreenGui.Parent = script.Parent
 ScreenGui.Parent = game.CoreGui
 
 Main.Name = "Main"
@@ -270,7 +265,6 @@ Open.Image = "rbxassetid://3926307971"
 Open.ScaleType = Enum.ScaleType.Fit
 Open.ImageRectOffset = Vector2.new(964, 4)
 Open.ImageRectSize = Vector2.new(36, 36)
---Open.Draggable = true
 
 Open.MouseButton1Down:connect(function()
 	Open.Visible = false
