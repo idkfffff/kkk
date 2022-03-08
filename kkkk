@@ -1,12 +1,88 @@
-local ScreenGui = Instance.new("ScreenGui")local Main = Instance.new("Frame")local Logo = Instance.new("TextLabel")local Close = Instance.new("TextButton")local EspName = Instance.new("TextButton")local Fullbright = Instance.new("TextButton")local InfiniteJump = Instance.new("TextButton")local Speed = Instance.new("TextButton")local Open = Instance.new("ImageButton")local TextBox = Instance.new("TextBox")ScreenGui.Parent = script.Parent--ScreenGui.Parent = game.CoreGui
-Main.Name = "Main"Main.Parent = ScreenGui Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)Main.BorderColor3 = Color3.fromRGB(0, 0, 0)Main.BorderSizePixel = 0 Main.Position = UDim2.new(0.307, 0,0.209, 0)Main.Size = UDim2.new(0, 624,0, 443)Main.Visible = false
-Main.Active = true Main.Draggable = true TextBox.Position = UDim2.new(0.069, 0,0.174, 0)TextBox.Parent = Main TextBox.ZIndex = 2 TextBox.Size = UDim2.new(0, 200,0, 50)TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)TextBox.Font = Enum.Font.SourceSansBold TextBox.TextScaled = true
-Logo.BackgroundTransparency = 1 Logo.Position = UDim2.new(0.017, 0,0.029, 0)Logo.Size = UDim2.new(0.084, 0,0.042, 0)Logo.Font = Enum.Font.SourceSansBold Logo.Text = "B A D T I M E   H U B"Logo.TextSize = 27 Logo.TextStrokeTransparency = 1 Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
-Logo.TextXAlignment = Enum.TextXAlignment.Left Logo.Parent = Main Close.Name = "Close"Close.Parent = Main Close.BackgroundTransparency = 1 Close.Position = UDim2.new(0.934, 0,0, 0)Close.Size = UDim2.new(0, 43,0, 40)Close.Font = Enum.Font.SourceSans Close.Text = "×"
-Close.TextColor3 = Color3.fromRGB(255, 255, 255)Close.TextScaled = false Close.TextSize = 30 Close.TextStrokeTransparency = 0.000 Close.TextWrapped = false Close.MouseButton1Down:connect(function()Main.Visible = false Open.Visible = true end)
-EspName.Name = "Earned All Chest"EspName.Parent = Main EspName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)EspName.BackgroundTransparency = 0.900 EspName.BorderColor3 = Color3.fromRGB(0, 0, 0)EspName.BorderSizePixel = 0
-EspName.Position = UDim2.new(0.042, 0,0.677, 0)EspName.Size = UDim2.new(0, 200,0, 50)EspName.Font = Enum.Font.Arcade EspName.Text = "Earned All Chest"EspName.TextColor3 = Color3.fromRGB(255, 255, 255)EspName.TextScaled = true EspName.TextSize = 14.000 EspName.TextStrokeTransparency = 0.000
-EspName.TextWrapped = true EspName.MouseButton1Down:connect(function() for k,v in pairs(game:GetService("Workspace").Chests:GetChildren()) do firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v,0)end end)
+local ScreenGui = Instance.new("ScreenGui")
+local Main = Instance.new("Frame")
+local Logo = Instance.new("TextLabel")
+local Close = Instance.new("TextButton")
+local EspName = Instance.new("TextButton")
+local Fullbright = Instance.new("TextButton")
+local InfiniteJump = Instance.new("TextButton")
+local Speed = Instance.new("TextButton")
+local Open = Instance.new("ImageButton")
+local TextBox = Instance.new("TextBox")
+
+
+--script by badtime
+
+
+--ScreenGui.Parent = script.Parent
+ScreenGui.Parent = game.CoreGui
+
+Main.Name = "Main"
+Main.Parent = ScreenGui
+Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main.BorderSizePixel = 0
+Main.Position = UDim2.new(0.307, 0,0.209, 0)
+Main.Size = UDim2.new(0, 624,0, 443)
+Main.Visible = false
+Main.Active = true
+Main.Draggable = true
+
+TextBox.Position = UDim2.new(0.069, 0,0.174, 0)
+TextBox.Parent = Main
+TextBox.ZIndex = 2
+TextBox.Size = UDim2.new(0, 200,0, 50)
+TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextBox.Font = Enum.Font.SourceSansBold
+TextBox.TextScaled = true
+
+Logo.BackgroundTransparency = 1
+Logo.Position = UDim2.new(0.017, 0,0.029, 0)
+Logo.Size = UDim2.new(0.084, 0,0.042, 0)
+Logo.Font = Enum.Font.SourceSansBold
+Logo.Text = "B A D T I M E   H U B"
+Logo.TextSize = 27
+Logo.TextStrokeTransparency = 1
+Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
+Logo.TextXAlignment = Enum.TextXAlignment.Left
+Logo.Parent = Main
+
+Close.Name = "Close"
+Close.Parent = Main
+Close.BackgroundTransparency = 1
+Close.Position = UDim2.new(0.934, 0,0, 0)
+Close.Size = UDim2.new(0, 43,0, 40)
+Close.Font = Enum.Font.SourceSans
+Close.Text = "×"
+Close.TextColor3 = Color3.fromRGB(255, 255, 255)
+Close.TextScaled = false
+Close.TextSize = 30
+Close.TextStrokeTransparency = 0.000
+Close.TextWrapped = false
+Close.MouseButton1Down:connect(function()
+	Main.Visible = false
+	Open.Visible = true
+end)
+
+EspName.Name = "Earned All Chest"
+EspName.Parent = Main
+EspName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EspName.BackgroundTransparency = 0.900
+EspName.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EspName.BorderSizePixel = 0
+EspName.Position = UDim2.new(0.042, 0,0.677, 0)
+EspName.Size = UDim2.new(0, 200,0, 50)
+EspName.Font = Enum.Font.Arcade
+EspName.Text = "Earned All Chest"
+EspName.TextColor3 = Color3.fromRGB(255, 255, 255)
+EspName.TextScaled = true
+EspName.TextSize = 14.000
+EspName.TextStrokeTransparency = 0.000
+EspName.TextWrapped = true
+EspName.MouseButton1Down:connect(function()
+	for k,v in pairs(game:GetService("Workspace").Chests:GetChildren()) do 
+		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v,0)    
+	end
+end)
 
 Fullbright.Name = "Fullbright"
 Fullbright.Parent = Main
