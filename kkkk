@@ -5,15 +5,33 @@
 
 local ScreenGui = Instance.new("ScreenGui")
 local Main = Instance.new("Frame")
+local Side = Instance.new("Frame")
+local Navigation = Instance.new("Frame")
+local Dash = Instance.new("Frame")
+local scriptFrame = Instance.new("Frame")
+local Frame = Instance.new("Frame")
 local Logo = Instance.new("TextLabel")
+local Version = Instance.new("TextLabel")
 local Logo2 = Instance.new("TextLabel")
+local DT = Instance.new("TextLabel")
+local SHT = Instance.new("TextLabel")
+local Eth = Instance.new("TextLabel")
+local TextLabell = Instance.new("TextLabel")
+local Namee = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
 local EspName = Instance.new("TextButton")
 local Fullbright = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
+local UICorner2 = Instance.new("UICorner")
+--local UIGradient = Instance.new("UIGradient")
 local InfiniteJump = Instance.new("TextButton")
 local Speed = Instance.new("TextButton")
+local HomeBtn = Instance.new("TextButton")
+local scriptBtn = Instance.new("TextButton")
 local Open = Instance.new("ImageButton")
+local Home = Instance.new("ImageButton")
+local build = Instance.new("ImageButton")
+local ScriptHub = Instance.new("ImageButton")
 local TextBox = Instance.new("TextBox")
 local SoundClick = Instance.new("Sound")
 local SoundClick2 = Instance.new("Sound")
@@ -22,28 +40,197 @@ local Autofram = false
 local clickedtime  = 1
 local OpenMain = false
 --Properties:
+
+--ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game.CoreGui
+
 SoundClick.SoundId = "rbxassetid://4572226779"
 SoundClick.Parent = ScreenGui
 SoundClick2.SoundId = "rbxassetid://4572227011"
 SoundClick2.Parent = ScreenGui
---ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.Parent = game.CoreGui
+
+TextLabell.BackgroundTransparency = 1
+TextLabell.Position = UDim2.new(0.078, 0,0.164, 0)
+TextLabell.Size = UDim2.new(0, 146,0, 35)
+TextLabell.Font = Enum.Font.SourceSans
+TextLabell.Text = "•  New BadTime Hub UI!"
+TextLabell.TextSize = 20
+TextLabell.TextStrokeTransparency = 1
+TextLabell.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabell.Parent = Dash
+TextLabell.AutoLocalize = true
+
+Namee.BackgroundTransparency = 1
+Namee.Position = UDim2.new(0.082, 0,0.059, 0)
+Namee.Size = UDim2.new(0, 141,0, 31)
+Namee.Font = Enum.Font.SourceSans
+Namee.Text = "• Changelog v.1.1"
+Namee.TextSize = 14
+Namee.TextStrokeTransparency = 1
+Namee.TextColor3 = Color3.fromRGB(106, 106, 106)
+Namee.Parent = Dash
+Namee.AutoLocalize = true
+
+Eth.BackgroundTransparency = 1
+Eth.Position = UDim2.new(0.098, 0,0.018, 0)
+Eth.Size = UDim2.new(0, 141,0, 31)
+Eth.Font = Enum.Font.SourceSansBold
+Eth.Text = "B A D T I M E"
+Eth.TextSize = 19
+Eth.TextStrokeTransparency = 1
+Eth.TextColor3 = Color3.fromRGB(255, 255, 255)
+Eth.Parent = Dash
+Eth.AutoLocalize = true
+
+Frame.Size = UDim2.new(0, 442,0, 1)
+Frame.Position = UDim2.new(0.038, 0,0.145, 0)
+Frame.Parent = Dash
+Frame.AutoLocalize = true
+Frame.Active = false
+Frame.BorderSizePixel = 0
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+
+scriptFrame.Name = "ScriptFrame"
+scriptFrame.Size = UDim2.new(0, 498,0, 399)
+scriptFrame.Position = UDim2.new(0.202, 0,1, 0)
+scriptFrame.Parent = Main
+scriptFrame.Active = false
+scriptFrame.BackgroundTransparency = 1
+scriptFrame.AutoLocalize = true
+
+Dash.Name = "DashFrame"
+Dash.Size = UDim2.new(0, 498,0, 399)
+Dash.Position = UDim2.new(0.202, 0,0.098, 0)
+Dash.Parent = Main
+Dash.Active = false
+Dash.BackgroundTransparency = 1
+Dash.AutoLocalize = true
+
+DT.BackgroundTransparency = 1
+DT.Position = UDim2.new(0.357, 0,0.286, 0)
+DT.Size = UDim2.new(0, 59,0, 20)
+DT.Font = Enum.Font.SourceSans
+DT.Text = "Dashboard"
+DT.TextSize = 14
+DT.TextStrokeTransparency = 1
+DT.TextColor3 = Color3.fromRGB(255, 255, 255)
+DT.Parent = Side
+
+Navigation.Name = "Navigation"
+Navigation.Position = UDim2.new(0, 9,0.293, 0)
+Navigation.Size = UDim2.new(0, 1,0, 16)
+Navigation.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Navigation.Parent = Side
+Navigation.BorderSizePixel = 0
+Navigation.AutoLocalize = true
+
+build.Name = "build"
+build.Parent = Dash
+build.BackgroundTransparency = 1
+build.Position = UDim2.new(0.052, 0,0.032, 0)
+build.Size = UDim2.new(0, 35,0, 38)
+build.Active = true
+build.Image = "rbxassetid://3926307971"
+build.ScaleType = Enum.ScaleType.Fit
+build.ImageRectOffset = Vector2.new(964, 4)
+build.ImageRectSize = Vector2.new(36, 36)
+
+HomeBtn.Text = ""
+HomeBtn.ZIndex = 4
+HomeBtn.BackgroundTransparency = 1
+HomeBtn.Size = UDim2.new(0, 94,0, 25)
+HomeBtn.Position = UDim2.new(0.153, 0,0.282, 0)
+HomeBtn.Selectable = true
+HomeBtn.AutoButtonColor = true
+HomeBtn.Parent = Side
+HomeBtn.MouseButton1Down:connect(function()
+	Navigation:TweenPosition(UDim2.new(0, 9,0.293, 0), "Out", "Quint", .9, true)
+	Dash:TweenPosition(UDim2.new(0.202, 0,0.098, 0), "Out", "Quint", .9, true)
+	scriptFrame:TweenPosition(UDim2.new(0.202, 0,1, 0), "Out", "Quint", .9, true)
+end)
+
+Home.Name = "home"
+Home.Parent = Side
+Home.BackgroundTransparency = 1
+Home.Position = UDim2.new(0.159, 0,0.289, 0)
+Home.Size = UDim2.new(0, 19,0, 19)
+Home.Image = "rbxassetid://3926305904"
+Home.ScaleType = Enum.ScaleType.Fit
+Home.ImageRectOffset = Vector2.new(964, 204)
+Home.ImageRectSize = Vector2.new(36, 36)
+Home.ZIndex = 2
+
+SHT.BackgroundTransparency = 1
+SHT.Position = UDim2.new(0.347, 0,0.354, 0)
+SHT.Size = UDim2.new(0, 59,0, 20)
+SHT.Font = Enum.Font.SourceSans
+SHT.Text = "Script Hub"
+SHT.TextSize = 14
+SHT.TextStrokeTransparency = 1
+SHT.TextColor3 = Color3.fromRGB(255, 255, 255)
+SHT.Parent = Side
+
+scriptBtn.Text = ""
+scriptBtn.ZIndex = 4
+scriptBtn.BackgroundTransparency = 1
+scriptBtn.Size = UDim2.new(0, 94,0, 25)
+scriptBtn.Position = UDim2.new(0.153, 0,0.352, 0)
+scriptBtn.Selectable = true
+scriptBtn.AutoButtonColor = true
+scriptBtn.Parent = Side
+scriptBtn.MouseButton1Down:connect(function()
+	Navigation:TweenPosition(UDim2.new(0, 9,0.36, 0), "Out", "Quint", .9, true)
+	scriptFrame:TweenPosition(UDim2.new(0.202, 0,0.098, 0), "Out", "Quint", .9, true)
+	Dash:TweenPosition(UDim2.new(0.202, 0,1, 0), "Out", "Quint", .9, true)
+end)
+
+ScriptHub.Name = "sort"
+ScriptHub.Parent = Side
+ScriptHub.BackgroundTransparency = 1
+ScriptHub.Position = UDim2.new(0.159, 0,0.359, 0)
+ScriptHub.Size = UDim2.new(0, 19,0, 19)
+ScriptHub.Image = "rbxassetid://3926307971"
+ScriptHub.ScaleType = Enum.ScaleType.Fit
+ScriptHub.ImageRectOffset = Vector2.new(404, 44)
+ScriptHub.ImageRectSize = Vector2.new(36, 36)
+ScriptHub.ZIndex = 2
+
+Side.Name = "SideBar"
+Side.Size = UDim2.new(0, 126,0, 443)
+Side.Position = UDim2.new(0,0,0,0)
+Side.BackgroundColor3 = Color3.fromRGB(27, 27, 27)
+Side.Parent = Main
+Side.ZIndex = 5
+
+Version.BackgroundTransparency = 1
+Version.Position = UDim2.new(0.735, 0,0.911, 0)
+Version.Size = UDim2.new(0, 146,0, 35)
+Version.Font = Enum.Font.SourceSans
+Version.Text = "Changelog v.1.1"
+Version.TextSize = 16
+Version.TextStrokeTransparency = 1
+Version.TextColor3 = Color3.fromRGB(255, 255, 255)
+Version.Parent = Dash
+
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-UICorner.CornerRadius = UDim.new(0,2)
+UICorner.CornerRadius = UDim.new(0,4)
 UICorner.Parent = Main
+UICorner2.CornerRadius = UDim.new(0,4)
+UICorner2.Parent = Side
 
 Main.Name = "Main"
 Main.Parent = ScreenGui
-Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Main.BackgroundColor3 = Color3.fromRGB(25,25,25)
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
 Main.Position = UDim2.new(0.274, 0,1.821, 0)
 Main.Size = UDim2.new(0, 624,0, 443)
 Main.Active = true
 Main.Draggable = true
+Main.ClipsDescendants = true
 
 TextBox.Position = UDim2.new(0.069, 0,0.174, 0)
-TextBox.Parent = Main
+TextBox.Parent = scriptFrame
 TextBox.ZIndex = 2
 TextBox.Size = UDim2.new(0, 200,0, 50)
 TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -54,12 +241,13 @@ Logo.BackgroundTransparency = 1
 Logo.Position = UDim2.new(0.017, 0,0.029, 0)
 Logo.Size = UDim2.new(0.084, 0,0.042, 0)
 Logo.Font = Enum.Font.SourceSansBold
-Logo.Text = "B A D T I M E   H U B"
+Logo.Text = "B A D H U B"
 Logo.TextSize = 27
 Logo.TextStrokeTransparency = 1
 Logo.TextColor3 = Color3.fromRGB(255, 255, 255)
 Logo.TextXAlignment = Enum.TextXAlignment.Left
 Logo.Parent = Main
+Logo.ZIndex = 100
 
 Close.Name = "Close"
 Close.Parent = Main
@@ -84,7 +272,7 @@ end
 end)
 
 EspName.Name = "Earned All Chest"
-EspName.Parent = Main
+EspName.Parent = scriptFrame
 EspName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 EspName.BackgroundTransparency = 0.900
 EspName.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -106,7 +294,7 @@ EspName.MouseButton1Down:connect(function()
 end)
 
 Fullbright.Name = "Autofram"
-Fullbright.Parent = Main
+Fullbright.Parent = scriptFrame
 Fullbright.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Fullbright.BackgroundTransparency = 0.900
 Fullbright.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -133,7 +321,7 @@ Fullbright.MouseButton1Down:connect(function()
 end)
 
 InfiniteJump.Name = "InfiniteJump"
-InfiniteJump.Parent = Main
+InfiniteJump.Parent = scriptFrame
 InfiniteJump.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 InfiniteJump.BackgroundTransparency = 0.900
 InfiniteJump.BorderColor3 = Color3.fromRGB(0, 0, 0)
@@ -167,7 +355,7 @@ InfiniteJump.MouseButton1Down:connect(function()
 end)
 
 Speed.Name = "Speed"
-Speed.Parent = Main
+Speed.Parent = scriptFrame
 Speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 Speed.BackgroundTransparency = 0.900
 Speed.BorderColor3 = Color3.fromRGB(0, 0, 0)
