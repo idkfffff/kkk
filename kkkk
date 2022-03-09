@@ -15,11 +15,17 @@ local InfiniteJump = Instance.new("TextButton")
 local Speed = Instance.new("TextButton")
 local Open = Instance.new("ImageButton")
 local TextBox = Instance.new("TextBox")
-
+local SoundClick = Instance.new("Sound")
+local SoundClick2 = Instance.new("Sound")
 --Value:
 local Autofram = false
 local clickedtime  = 1
+local OpenMain = false
 --Properties:
+SoundClick.SoundId = "rbxassetid://4572226779"
+SoundClick.Parent = ScreenGui
+SoundClick2.SoundId = "rbxassetid://4572227011"
+SoundClick2.Parent = ScreenGui
 --ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
@@ -31,9 +37,8 @@ Main.Parent = ScreenGui
 Main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Main.BorderSizePixel = 0
-Main.Position = UDim2.new(0.307, 0,0.209, 0)
+Main.Position = UDim2.new(0.274, 0,1.821, 0)
 Main.Size = UDim2.new(0, 624,0, 443)
-Main.Visible = false
 Main.Active = true
 Main.Draggable = true
 
@@ -69,8 +74,13 @@ Close.TextSize = 30
 Close.TextStrokeTransparency = 0.000
 Close.TextWrapped = false
 Close.MouseButton1Down:connect(function()
-	Main.Visible = false
-	Open.Visible = true
+	if OpenMain == true then
+		SoundClick:Play()
+		Open.Visible = true
+		Main:TweenPosition(UDim2.new(0.274, 0,1.821, 0),"Out","Quint",1,true)
+	wait(.5)
+	OpenMain = false
+end
 end)
 
 EspName.Name = "Earned All Chest"
@@ -89,6 +99,7 @@ EspName.TextSize = 14.000
 EspName.TextStrokeTransparency = 0.000
 EspName.TextWrapped = true
 EspName.MouseButton1Down:connect(function()
+	SoundClick2:Play()
 	for k,v in pairs(game:GetService("Workspace").Chests:GetChildren()) do 
 		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v,0)    
 	end
@@ -111,9 +122,11 @@ Fullbright.TextStrokeTransparency = 0.000
 Fullbright.TextWrapped = true
 Fullbright.MouseButton1Down:connect(function()
 	if Autofram == false then
+		SoundClick2:Play()
 		Fullbright.Text = "Auto Fram:On"
 		Autofram = true
 	elseif Autofram == true then
+		SoundClick2:Play()
 	Fullbright.Text = "Auto Fram:Off"
 		Autofram = false
 	end
@@ -135,6 +148,7 @@ InfiniteJump.TextSize = 14.000
 InfiniteJump.TextStrokeTransparency = 0.000
 InfiniteJump.TextWrapped = true
 InfiniteJump.MouseButton1Down:connect(function()
+	SoundClick2:Play()
 	local InfiniteJumpEnabled = true
 	game:GetService("UserInputService").JumpRequest:connect(function()
 		if InfiniteJumpEnabled then
@@ -168,6 +182,7 @@ Speed.TextSize = 14.000
 Speed.TextStrokeTransparency = 0.000
 Speed.TextWrapped = true
 Speed.MouseButton1Down:connect(function()
+	SoundClick2:Play()
 	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = TextBox.Text
 end)
 
@@ -183,12 +198,26 @@ Open.ImageRectOffset = Vector2.new(964, 4)
 Open.ImageRectSize = Vector2.new(36, 36)
 
 Open.MouseButton1Down:connect(function()
-	Open.Visible = false
-	Main.Visible = true
+	if OpenMain == false then
+		SoundClick:Play()
+		Open.Visible = false
+		--Main.Visible = true
+		Main:TweenPosition(UDim2.new(0.268, 0,0.121, 0),"Out","Quint",1,true)
+		wait()
+		OpenMain = true
+	end
 end)
-
 game:GetService("RunService").Heartbeat:Connect(function()
 	if Autofram == true then
+		if game.Players.LocalPlayer.Backpack:FindFirstChild("Yoru") then
+			game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Yoru"))
+		end
+		for i,v in pairs(game.Workspace:FindFirstChild("Lives"):GetChildren()) do
+			if v:FindFirstChild("HumanoidRootPart") then
+				task.wait(0.5)
+				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
+			end
+		end
 		if clickedtime == 1 then
 			clickedtime = 2
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key1",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
@@ -198,17 +227,6 @@ game:GetService("RunService").Heartbeat:Connect(function()
 		elseif clickedtime == 3 then    
 			clickedtime = 3
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key3",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
-		end
-	end
-end)
-
-game:GetService("RunService").Heartbeat:Connect(function()
-	if Autofram == true then
-		for i,v in pairs(game.Workspace:FindFirstChild("Lives"):GetChildren()) do
-			if v:FindFirstChild("HumanoidRootPart") then
-				task.wait(0.5)
-				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
-			end
 		end
 	end
 end)
