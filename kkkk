@@ -12,33 +12,30 @@ local scriptFrame = Instance.new("Frame")
 local Frame = Instance.new("Frame")
 local Logo = Instance.new("TextLabel")
 local Version = Instance.new("TextLabel")
-local Logo2 = Instance.new("TextLabel")
 local DT = Instance.new("TextLabel")
 local SHT = Instance.new("TextLabel")
 local Eth = Instance.new("TextLabel")
 local TextLabell = Instance.new("TextLabel")
 local Namee = Instance.new("TextLabel")
 local Close = Instance.new("TextButton")
-local EspName = Instance.new("TextButton")
-local Fullbright = Instance.new("TextButton")
 local UICorner = Instance.new("UICorner")
 local UICorner2 = Instance.new("UICorner")
 --local UIGradient = Instance.new("UIGradient")
-local InfiniteJump = Instance.new("TextButton")
-local Speed = Instance.new("TextButton")
 local HomeBtn = Instance.new("TextButton")
 local scriptBtn = Instance.new("TextButton")
 local Open = Instance.new("ImageButton")
 local Home = Instance.new("ImageButton")
 local build = Instance.new("ImageButton")
 local ScriptHub = Instance.new("ImageButton")
-local TextBox = Instance.new("TextBox")
 local SoundClick = Instance.new("Sound")
 local SoundClick2 = Instance.new("Sound")
+local Scroll = Instance.new("ScrollingFrame")
 --Value:
 local Autofram = false
+local AutoKilling = false
 local clickedtime  = 1
 local OpenMain = false
+local AutoClick = false
 --Properties:
 
 --ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -48,6 +45,170 @@ SoundClick.SoundId = "rbxassetid://4572226779"
 SoundClick.Parent = ScreenGui
 SoundClick2.SoundId = "rbxassetid://4572227011"
 SoundClick2.Parent = ScreenGui
+
+Scroll.BackgroundTransparency = 1
+Scroll.Active = true
+Scroll.BorderSizePixel = 0
+Scroll.Position = UDim2.new(0.039, 0,0.022, 0)
+Scroll.Size = UDim2.new(0, 478,0, 390)
+Scroll.AutoLocalize = true
+Scroll.BottomImage = ""
+Scroll.CanvasSize = UDim2.new(0, 0,2.7, 0)
+Scroll.MidImage = ""
+Scroll.TopImage = ""
+Scroll.Parent = scriptFrame
+
+-- SCRIPT AND LIST
+local List = Instance.new("UIListLayout")
+List.Padding = UDim.new(0.01,0)
+List.Parent = Scroll
+--Auto Fram
+local FrameScript3 = Instance.new("Frame")
+local TextScript3 = Instance.new("TextLabel")
+local ButtonScript3 = Instance.new("TextButton")
+local Ui3 = Instance.new("UICorner")
+Ui3.CornerRadius = UDim.new(0,4)
+Ui3.Parent = FrameScript3
+local Ui4 = Instance.new("UICorner")
+Ui4.CornerRadius = UDim.new(0,4)
+Ui4.Parent = ButtonScript3
+FrameScript3.Active = false
+FrameScript3.BackgroundColor3 = Color3.fromRGB(33,33,33)
+FrameScript3.Selectable = false
+FrameScript3.Size = UDim2.new(0, 463,0, 34)
+FrameScript3.AutoLocalize = true
+FrameScript3.Parent = Scroll
+
+TextScript3.BackgroundTransparency = 1
+TextScript3.Position = UDim2.new(0,0,0,0)
+TextScript3.Size = UDim2.new(0, 120,0, 34)
+TextScript3.Font = Enum.Font.SourceSansBold
+TextScript3.Text = "AUTO KILL:OFF"
+TextScript3.TextSize = 19
+TextScript3.TextStrokeTransparency = 1
+TextScript3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextScript3.Parent = FrameScript3
+TextScript3.AutoLocalize = true
+
+ButtonScript3.AutoButtonColor = true
+ButtonScript3.BackgroundColor3 = Color3.fromRGB(44,44,44)
+ButtonScript3.Position = UDim2.new(0.82, 0,0.118, 0)
+ButtonScript3.Size = UDim2.new(0, 76, 0, 26)
+ButtonScript3.AutoLocalize = true
+ButtonScript3.Font = Enum.Font.SourceSansBold
+ButtonScript3.Text = "EXECUTE"
+ButtonScript3.TextSize = 16
+ButtonScript3.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript3.Parent = FrameScript3
+ButtonScript3.MouseButton1Down:connect(function()
+	if AutoKilling == false then
+		SoundClick2:Play()
+		TextScript3.Text = "AUTO KILL:ON"
+		AutoKilling = true
+		AutoClick = true
+	elseif AutoKilling == true then
+		SoundClick2:Play()
+		TextScript3.Text = "AUTO KILL:OFF"
+		AutoKilling = false
+		AutoClick = false
+	end
+end)
+--Auto Fram
+local FrameScript1 = Instance.new("Frame")
+local TextScript1 = Instance.new("TextLabel")
+local ButtonScript1 = Instance.new("TextButton")
+local Ui1 = Instance.new("UICorner")
+Ui1.CornerRadius = UDim.new(0,4)
+Ui1.Parent = FrameScript1
+local Ui2 = Instance.new("UICorner")
+Ui2.CornerRadius = UDim.new(0,4)
+Ui2.Parent = ButtonScript1
+FrameScript1.Active = false
+FrameScript1.BackgroundColor3 = Color3.fromRGB(33,33,33)
+FrameScript1.Selectable = false
+FrameScript1.Size = UDim2.new(0, 463,0, 34)
+FrameScript1.AutoLocalize = true
+FrameScript1.Parent = Scroll
+
+TextScript1.BackgroundTransparency = 1
+TextScript1.Position = UDim2.new(0,0,0,0)
+TextScript1.Size = UDim2.new(0, 120,0, 34)
+TextScript1.Font = Enum.Font.SourceSansBold
+TextScript1.Text = "AUTO FRAM:OFF"
+TextScript1.TextSize = 19
+TextScript1.TextStrokeTransparency = 1
+TextScript1.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextScript1.Parent = FrameScript1
+TextScript1.AutoLocalize = true
+
+ButtonScript1.AutoButtonColor = true
+ButtonScript1.BackgroundColor3 = Color3.fromRGB(44,44,44)
+ButtonScript1.Position = UDim2.new(0.82, 0,0.118, 0)
+ButtonScript1.Size = UDim2.new(0, 76, 0, 26)
+ButtonScript1.AutoLocalize = true
+ButtonScript1.Font = Enum.Font.SourceSansBold
+ButtonScript1.Text = "EXECUTE"
+ButtonScript1.TextSize = 16
+ButtonScript1.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript1.Parent = FrameScript1
+ButtonScript1.MouseButton1Down:connect(function()
+	if Autofram == false then
+		SoundClick2:Play()
+		TextScript1.Text = "AUTO FRAM:ON"
+		AutoClick = true
+		Autofram = true
+	elseif Autofram == true then
+		SoundClick2:Play()
+		TextScript1.Text = "AUTO FRAM:OFF"
+		AutoClick = false
+		Autofram = false
+	end
+end)
+--Pick Chests
+local FrameScript2 = Instance.new("Frame")
+local TextScript2 = Instance.new("TextLabel")
+local ButtonScript2 = Instance.new("TextButton")
+local Ui2 = Instance.new("UICorner")
+Ui2.CornerRadius = UDim.new(0,4)
+Ui2.Parent = FrameScript2
+local Ui3 = Instance.new("UICorner")
+Ui3.CornerRadius = UDim.new(0,4)
+Ui3.Parent = ButtonScript2
+FrameScript2.Active = false
+FrameScript2.BackgroundColor3 = Color3.fromRGB(33,33,33)
+FrameScript2.Selectable = false
+FrameScript2.Size = UDim2.new(0, 463,0, 34)
+FrameScript2.AutoLocalize = true
+FrameScript2.Parent = Scroll
+
+TextScript2.BackgroundTransparency = 1
+TextScript2.Position = UDim2.new(0,0,0,0)
+TextScript2.Size = UDim2.new(0, 120,0, 34)
+TextScript2.Font = Enum.Font.SourceSansBold
+TextScript2.Text = "PICK ALL CHEST"
+TextScript2.TextSize = 19
+TextScript2.TextStrokeTransparency = 1
+TextScript2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextScript2.Parent = FrameScript2
+TextScript2.AutoLocalize = true
+
+ButtonScript2.AutoButtonColor = true
+ButtonScript2.BackgroundColor3 = Color3.fromRGB(44,44,44)
+ButtonScript2.Position = UDim2.new(0.82, 0,0.118, 0)
+ButtonScript2.Size = UDim2.new(0, 76, 0, 26)
+ButtonScript2.AutoLocalize = true
+ButtonScript2.Font = Enum.Font.SourceSansBold
+ButtonScript2.Text = "EXECUTE"
+ButtonScript2.TextSize = 16
+ButtonScript2.TextColor3 = Color3.fromRGB(255, 255, 255)
+ButtonScript2.Parent = FrameScript2
+ButtonScript2.MouseButton1Down:connect(function()
+	SoundClick2:Play()
+	for k,v in pairs(game:GetService("Workspace").Chests:GetChildren()) do 
+		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v,0)    
+	end
+end)
+
 
 TextLabell.BackgroundTransparency = 1
 TextLabell.Position = UDim2.new(0.078, 0,0.164, 0)
@@ -229,14 +390,6 @@ Main.Active = true
 Main.Draggable = true
 Main.ClipsDescendants = true
 
-TextBox.Position = UDim2.new(0.069, 0,0.174, 0)
-TextBox.Parent = scriptFrame
-TextBox.ZIndex = 2
-TextBox.Size = UDim2.new(0, 200,0, 50)
-TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-TextBox.Font = Enum.Font.SourceSansBold
-TextBox.TextScaled = true
-
 Logo.BackgroundTransparency = 1
 Logo.Position = UDim2.new(0.017, 0,0.029, 0)
 Logo.Size = UDim2.new(0.084, 0,0.042, 0)
@@ -271,109 +424,6 @@ Close.MouseButton1Down:connect(function()
 end
 end)
 
-EspName.Name = "Earned All Chest"
-EspName.Parent = scriptFrame
-EspName.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-EspName.BackgroundTransparency = 0.900
-EspName.BorderColor3 = Color3.fromRGB(0, 0, 0)
-EspName.BorderSizePixel = 0
-EspName.Position = UDim2.new(0.042, 0,0.677, 0)
-EspName.Size = UDim2.new(0, 200,0, 50)
-EspName.Font = Enum.Font.Arcade
-EspName.Text = "Earned All Chest"
-EspName.TextColor3 = Color3.fromRGB(255, 255, 255)
-EspName.TextScaled = true
-EspName.TextSize = 14.000
-EspName.TextStrokeTransparency = 0.000
-EspName.TextWrapped = true
-EspName.MouseButton1Down:connect(function()
-	SoundClick2:Play()
-	for k,v in pairs(game:GetService("Workspace").Chests:GetChildren()) do 
-		firetouchinterest(game.Players.LocalPlayer.Character.HumanoidRootPart,v,0)    
-	end
-end)
-
-Fullbright.Name = "Autofram"
-Fullbright.Parent = scriptFrame
-Fullbright.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Fullbright.BackgroundTransparency = 0.900
-Fullbright.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Fullbright.BorderSizePixel = 0
-Fullbright.Position = UDim2.new(0.624, 0,0.172, 0)
-Fullbright.Size = UDim2.new(0, 200,0, 50)
-Fullbright.Font = Enum.Font.Arcade
-Fullbright.Text = "Auto Fram:Off"
-Fullbright.TextColor3 = Color3.fromRGB(255, 255, 255)
-Fullbright.TextScaled = true
-Fullbright.TextSize = 14.000
-Fullbright.TextStrokeTransparency = 0.000
-Fullbright.TextWrapped = true
-Fullbright.MouseButton1Down:connect(function()
-	if Autofram == false then
-		SoundClick2:Play()
-		Fullbright.Text = "Auto Fram:On"
-		Autofram = true
-	elseif Autofram == true then
-		SoundClick2:Play()
-	Fullbright.Text = "Auto Fram:Off"
-		Autofram = false
-	end
-end)
-
-InfiniteJump.Name = "InfiniteJump"
-InfiniteJump.Parent = scriptFrame
-InfiniteJump.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-InfiniteJump.BackgroundTransparency = 0.900
-InfiniteJump.BorderColor3 = Color3.fromRGB(0, 0, 0)
-InfiniteJump.BorderSizePixel = 0
-InfiniteJump.Position = UDim2.new(0.62244463, 0, 0.54112041, 0)
-InfiniteJump.Size = UDim2.new(0, 200, 0, 50)
-InfiniteJump.Font = Enum.Font.Arcade
-InfiniteJump.Text = "Infinite Jump"
-InfiniteJump.TextColor3 = Color3.fromRGB(255, 255, 255)
-InfiniteJump.TextScaled = true
-InfiniteJump.TextSize = 14.000
-InfiniteJump.TextStrokeTransparency = 0.000
-InfiniteJump.TextWrapped = true
-InfiniteJump.MouseButton1Down:connect(function()
-	SoundClick2:Play()
-	local InfiniteJumpEnabled = true
-	game:GetService("UserInputService").JumpRequest:connect(function()
-		if InfiniteJumpEnabled then
-			game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
-		end
-	end)
-	local InfiniteJump = CreateButton("Infinite Jump: Off", StuffFrame)
-	InfiniteJump.Position = UDim2.new(0,10,0,130)
-	InfiniteJump.Size = UDim2.new(0,150,0,30)
-	InfiniteJump.MouseButton1Click:connect(function()
-		local state = InfiniteJump.Text:sub(string.len("Infinite Jump: ") + 1) --too lazy to count lol
-		local new = state == "Off" and "On" or state == "On" and "Off"
-		InfiniteJumpEnabled = new == "On"
-		InfiniteJump.Text = "Infinite Jump: " .. new
-	end)
-end)
-
-Speed.Name = "Speed"
-Speed.Parent = scriptFrame
-Speed.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Speed.BackgroundTransparency = 0.900
-Speed.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Speed.BorderSizePixel = 0
-Speed.Position = UDim2.new(0.069, 0,0.327, 0)
-Speed.Size = UDim2.new(0, 200,0, 24)
-Speed.Font = Enum.Font.Arcade
-Speed.Text = "Speed"
-Speed.TextColor3 = Color3.fromRGB(255, 255, 255)
-Speed.TextScaled = true
-Speed.TextSize = 14.000
-Speed.TextStrokeTransparency = 0.000
-Speed.TextWrapped = true
-Speed.MouseButton1Down:connect(function()
-	SoundClick2:Play()
-	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = TextBox.Text
-end)
-
 Open.Name = "Open"
 Open.Parent = ScreenGui
 Open.BackgroundTransparency = 1
@@ -406,7 +456,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v:FindFirstChild("HumanoidRootPart").CFrame
 			end
 		end
-		if clickedtime == 1 then
+		if AutoClick == true and clickedtime == 1 then
 			clickedtime = 2
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key1",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
 		elseif clickedtime == 2 then
@@ -415,6 +465,14 @@ game:GetService("RunService").Heartbeat:Connect(function()
 		elseif clickedtime == 3 then    
 			clickedtime = 3
 			game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Remotes.RemotePunch:FireServer("Key3",game.Players.LocalPlayer.Character:FindFirstChildWhichIsA("Tool").Handle.Damage)
+		end
+	end
+	if AutoKilling == true then
+		for i,v in pairs(game.Players:GetPlayers()) do
+			if v.Name ~= game.Players.LocalPlayer.Name then
+				task.wait(0.5)
+				game.Workspace:WaitForChild(game.Players.LocalPlayer.Name).HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
+			end
 		end
 	end
 end)
